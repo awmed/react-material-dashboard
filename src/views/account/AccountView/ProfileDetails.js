@@ -34,7 +34,6 @@ const useStyles = makeStyles(() => ({
 
 const ProfileDetails = ({ className, ...rest }) => {
   const classes = useStyles();
-
   const [values, setValues] = useState({
     firstName: 'Shen',
     lastName: 'Zhi',

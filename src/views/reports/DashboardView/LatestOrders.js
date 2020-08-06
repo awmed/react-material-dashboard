@@ -5,10 +5,10 @@ import { v4 as uuid } from 'uuid';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import PropTypes from 'prop-types';
 import {
+  Box,
   Button,
   Card,
   CardActions,
-  CardContent,
   CardHeader,
   Divider,
   Table,
@@ -20,7 +20,7 @@ import {
   Tooltip,
   makeStyles
 } from '@material-ui/core';
-import { ArrowRight as ArrowRightIcon } from '@material-ui/icons';
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 const mockData = [
   {
@@ -85,21 +85,8 @@ const mockData = [
   }
 ];
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {},
-  content: {
-    padding: 0
-  },
-  inner: {
-    minWidth: 800
-  },
-  statusContainer: {
-    display: 'flex',
-    alignItems: 'center'
-  },
-  status: {
-    marginRight: theme.spacing(1)
-  },
   actions: {
     justifyContent: 'flex-end'
   }
@@ -114,73 +101,70 @@ const LatestOrders = ({ className, ...rest }) => {
       className={clsx(classes.root, className)}
       {...rest}
     >
-      <CardHeader
-        action={(
-          <Button
-            color="primary"
-            size="small"
-            variant="outlined"
-          >
-            New entry
-          </Button>
-        )}
-        title="Latest Orders"
-      />
+      <CardHeader title="Latest Orders" />
       <Divider />
-      <CardContent className={classes.content}>
-        <PerfectScrollbar>
-          <div className={classes.inner}>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Order Ref</TableCell>
-                  <TableCell>Customer</TableCell>
-                  <TableCell sortDirection="desc">
-                    <Tooltip
-                      enterDelay={300}
-                      title="Sort"
-                    >
-                      <TableSortLabel
-                        active
-                        direction="desc"
-                      >
-                        Date
-                      </TableSortLabel>
-                    </Tooltip>
-                  </TableCell>
-                  <TableCell>Status</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {orders.map((order) => (
-                  <TableRow
-                    hover
-                    key={order.id}
+      <PerfectScrollbar>
+        <Box minWidth={800}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>
+                  Order Ref
+                </TableCell>
+                <TableCell>
+                  Customer
+                </TableCell>
+                <TableCell sortDirection="desc">
+                  <Tooltip
+                    enterDelay={300}
+                    title="Sort"
                   >
-                    <TableCell>{order.ref}</TableCell>
-                    <TableCell>{order.customer.name}</TableCell>
-                    <TableCell>
-                      {moment(order.createdAt).format('DD/MM/YYYY')}
-                    </TableCell>
-                    <TableCell>
-                      {order.status}
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </div>
-        </PerfectScrollbar>
-      </CardContent>
+                    <TableSortLabel
+                      active
+                      direction="desc"
+                    >
+                      Date
+                    </TableSortLabel>
+                  </Tooltip>
+                </TableCell>
+                <TableCell>
+                  Status
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {orders.map((order) => (
+                <TableRow
+                  hover
+                  key={order.id}
+                >
+                  <TableCell>
+                    {order.ref}
+                  </TableCell>
+                  <TableCell>
+                    {order.customer.name}
+                  </TableCell>
+                  <TableCell>
+                    {moment(order.createdAt).format('DD/MM/YYYY')}
+                  </TableCell>
+                  <TableCell>
+                    {order.status}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </Box>
+      </PerfectScrollbar>
       <Divider />
       <CardActions className={classes.actions}>
         <Button
           color="primary"
+          endIcon={<ArrowRightIcon />}
           size="small"
           variant="text"
         >
           View all
-          <ArrowRightIcon />
         </Button>
       </CardActions>
     </Card>

@@ -61,7 +61,7 @@ const Notifications = ({ className, ...rest }) => {
                 control={(
                   <Checkbox
                     color="primary"
-                    defaultChecked //
+                    defaultChecked
                   />
                 )}
                 label="Email"
@@ -70,7 +70,7 @@ const Notifications = ({ className, ...rest }) => {
                 control={(
                   <Checkbox
                     color="primary"
-                    defaultChecked //
+                    defaultChecked
                   />
                 )}
                 label="Push Notifications"
@@ -83,7 +83,7 @@ const Notifications = ({ className, ...rest }) => {
                 control={(
                   <Checkbox
                     color="primary"
-                    defaultChecked //
+                    defaultChecked
                   />
                 )}
                 label="Phone calls"
@@ -107,7 +107,7 @@ const Notifications = ({ className, ...rest }) => {
                 control={(
                   <Checkbox
                     color="primary"
-                    defaultChecked //
+                    defaultChecked
                   />
                 )}
                 label="Email"
@@ -120,7 +120,7 @@ const Notifications = ({ className, ...rest }) => {
                 control={(
                   <Checkbox
                     color="primary"
-                    defaultChecked //
+                    defaultChecked
                   />
                 )}
                 label="Phone calls"

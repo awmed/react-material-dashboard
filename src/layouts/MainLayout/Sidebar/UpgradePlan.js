@@ -10,7 +10,7 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.background.dark
+    backgroundColor: theme.palette.background.dark
   },
   media: {
     paddingTop: theme.spacing(2),

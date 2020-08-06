@@ -1,4 +1,5 @@
 import { createMuiTheme, colors } from '@material-ui/core';
+import shadows from './shadows';
 import typography from './typography';
 
 const theme = createMuiTheme({
@@ -20,6 +21,7 @@ const theme = createMuiTheme({
       secondary: colors.blueGrey[600]
     }
   },
+  shadows,
   typography,
   zIndex: {
     appBar: 1200,

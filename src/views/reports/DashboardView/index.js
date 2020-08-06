@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Container,
   Grid,
   makeStyles
 } from '@material-ui/core';
@@ -15,7 +16,9 @@ import LatestOrders from './LatestOrders';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(4)
+    backgroundColor: theme.palette.background.dark,
+    paddingBottom: theme.spacing(3),
+    paddingTop: theme.spacing(3)
   }
 }));
 
@@ -27,83 +30,85 @@ const Dashboard = () => {
       className={classes.root}
       title="Dashboard"
     >
-      <Grid
-        container
-        spacing={4}
-      >
+      <Container maxWidth={false}>
         <Grid
-          item
-          lg={3}
-          sm={6}
-          xl={3}
-          xs={12}
+          container
+          spacing={3}
         >
-          <Budget />
+          <Grid
+            item
+            lg={3}
+            sm={6}
+            xl={3}
+            xs={12}
+          >
+            <Budget />
+          </Grid>
+          <Grid
+            item
+            lg={3}
+            sm={6}
+            xl={3}
+            xs={12}
+          >
+            <TotalUsers />
+          </Grid>
+          <Grid
+            item
+            lg={3}
+            sm={6}
+            xl={3}
+            xs={12}
+          >
+            <TasksProgress />
+          </Grid>
+          <Grid
+            item
+            lg={3}
+            sm={6}
+            xl={3}
+            xs={12}
+          >
+            <TotalProfit />
+          </Grid>
+          <Grid
+            item
+            lg={8}
+            md={12}
+            xl={9}
+            xs={12}
+          >
+            <LatestSales />
+          </Grid>
+          <Grid
+            item
+            lg={4}
+            md={6}
+            xl={3}
+            xs={12}
+          >
+            <UsersByDevice />
+          </Grid>
+          <Grid
+            item
+            lg={4}
+            md={6}
+            xl={3}
+            xs={12}
+          >
+            <LatestProducts />
+          </Grid>
+          <Grid
+            item
+            lg={8}
+            md={12}
+            xl={9}
+            xs={12}
+          >
+            <LatestOrders />
+          </Grid>
         </Grid>
-        <Grid
-          item
-          lg={3}
-          sm={6}
-          xl={3}
-          xs={12}
-        >
-          <TotalUsers />
-        </Grid>
-        <Grid
-          item
-          lg={3}
-          sm={6}
-          xl={3}
-          xs={12}
-        >
-          <TasksProgress />
-        </Grid>
-        <Grid
-          item
-          lg={3}
-          sm={6}
-          xl={3}
-          xs={12}
-        >
-          <TotalProfit />
-        </Grid>
-        <Grid
-          item
-          lg={8}
-          md={12}
-          xl={9}
-          xs={12}
-        >
-          <LatestSales />
-        </Grid>
-        <Grid
-          item
-          lg={4}
-          md={6}
-          xl={3}
-          xs={12}
-        >
-          <UsersByDevice />
-        </Grid>
-        <Grid
-          item
-          lg={4}
-          md={6}
-          xl={3}
-          xs={12}
-        >
-          <LatestProducts />
-        </Grid>
-        <Grid
-          item
-          lg={8}
-          md={12}
-          xl={9}
-          xs={12}
-        >
-          <LatestOrders />
-        </Grid>
-      </Grid>
+      </Container>
     </Page>
   );
 };

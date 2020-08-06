@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Container,
   Grid,
   makeStyles
 } from '@material-ui/core';
@@ -9,7 +10,9 @@ import Password from './Password';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(4)
+    backgroundColor: theme.palette.background.dark,
+    paddingBottom: theme.spacing(3),
+    paddingTop: theme.spacing(3)
   }
 }));
 
@@ -21,25 +24,27 @@ const SettingsView = () => {
       className={classes.root}
       title="Settings"
     >
-      <Grid
-        container
-        spacing={4}
-      >
+      <Container maxWidth={false}>
         <Grid
-          item
-          md={7}
-          xs={12}
+          container
+          spacing={3}
         >
-          <Notifications />
+          <Grid
+            item
+            md={7}
+            xs={12}
+          >
+            <Notifications />
+          </Grid>
+          <Grid
+            item
+            md={5}
+            xs={12}
+          >
+            <Password />
+          </Grid>
         </Grid>
-        <Grid
-          item
-          md={5}
-          xs={12}
-        >
-          <Password />
-        </Grid>
-      </Grid>
+      </Container>
     </Page>
   );
 };

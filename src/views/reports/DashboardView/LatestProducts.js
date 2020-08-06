@@ -1,4 +1,4 @@
-  import React, { useState } from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { v4 as uuid } from 'uuid';
@@ -17,10 +17,8 @@ import {
   ListItemText,
   makeStyles
 } from '@material-ui/core';
-import {
-  ArrowRight as ArrowRightIcon,
-  MoreVert as MoreVertIcon
-} from '@material-ui/icons';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 const mockData = [
   {
@@ -117,11 +115,11 @@ const LatestProducts = ({ className, ...rest }) => {
       <CardActions className={classes.actions}>
         <Button
           color="primary"
+          endIcon={<ArrowRightIcon />}
           size="small"
           variant="text"
         >
           View all
-          <ArrowRightIcon />
         </Button>
       </CardActions>
     </Card>

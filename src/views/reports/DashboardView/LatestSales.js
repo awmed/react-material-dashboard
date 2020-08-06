@@ -131,11 +131,11 @@ const LatestSales = ({ className, ...rest }) => {
       <CardActions className={classes.actions}>
         <Button
           color="primary"
+          endIcon={<ArrowRightIcon />}
           size="small"
           variant="text"
         >
           Overview
-          <ArrowRightIcon />
         </Button>
       </CardActions>
     </Card>

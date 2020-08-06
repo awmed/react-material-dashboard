@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import {
+  Box,
   Card,
-  CardActions,
   CardContent,
   Divider,
   Grid,
@@ -16,25 +16,20 @@ import GetAppIcon from '@material-ui/icons/GetApp';
 const useStyles = makeStyles((theme) => ({
   root: {},
   imageContainer: {
-    height: 64,
-    width: 64,
-    margin: '0 auto',
+    alignItems: 'center',
     border: `1px solid ${theme.palette.divider}`,
     borderRadius: '5px',
-    overflow: 'hidden',
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
+    height: 64,
+    justifyContent: 'center',
+    margin: '0 auto',
+    overflow: 'hidden',
+    width: 64
   },
   image: {
     width: '100%'
   },
-  statsItem: {
-    display: 'flex',
-    alignItems: 'center'
-  },
   statsIcon: {
-    color: theme.palette.icon,
     marginRight: theme.spacing(1)
   }
 }));
@@ -72,40 +67,40 @@ const ProductCard = ({ className, product, ...rest }) => {
         </Typography>
       </CardContent>
       <Divider />
-      <CardActions>
+      <Box p={1}>
         <Grid
           container
           justify="space-between"
+          spacing={2}
         >
-          <Grid
-            className={classes.statsItem}
-            item
-          >
-            <AccessTimeIcon className={classes.statsIcon} />
+          <Grid item>
+            <AccessTimeIcon color="action" />
             <Typography
-              color="textPrimary"
+              color="textSecondary"
               display="inline"
               variant="body2"
             >
               Updated 2hr ago
             </Typography>
           </Grid>
-          <Grid
-            className={classes.statsItem}
-            item
-          >
-            <GetAppIcon className={classes.statsIcon} />
-            <Typography
-              color="textPrimary"
-              display="inline"
-              variant="body2"
+          <Grid item>
+            <Box
+              alignItems="center"
+              display="flex"
             >
-              {product.totalDownloads}
-              Downloads
-            </Typography>
+              <GetAppIcon color="action" />
+              <Typography
+                color="textSecondary"
+                display="inline"
+                variant="body2"
+              >
+                {product.totalDownloads}
+                Downloads
+              </Typography>
+            </Box>
           </Grid>
         </Grid>
-      </CardActions>
+      </Box>
     </Card>
   );
 };

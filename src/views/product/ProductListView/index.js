@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import {
+  Box,
+  Container,
   Grid,
-  IconButton,
-  Typography,
   makeStyles
 } from '@material-ui/core';
-import {
-  ChevronRight as ChevronRightIcon,
-  ChevronLeft as ChevronLeftIcon
-} from '@material-ui/icons';
+import { Pagination } from '@material-ui/lab';
 import Page from 'src/components/Page';
 import Toolbar from './Toolbar';
 import ProductCard from './ProductCard';
@@ -16,16 +13,9 @@ import mockData from './mock';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(3)
-  },
-  content: {
-    marginTop: theme.spacing(2)
-  },
-  pagination: {
-    marginTop: theme.spacing(3),
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end'
+    backgroundColor: theme.palette.background.dark,
+    paddingBottom: theme.spacing(3),
+    paddingTop: theme.spacing(3)
   }
 }));
 
@@ -38,39 +28,38 @@ const ProductList = () => {
       className={classes.root}
       title="Products"
     >
-      <Toolbar />
-      <div className={classes.content}>
-        <Grid
-          container
-          spacing={3}
+      <Container maxWidth={false}>
+        <Toolbar />
+        <Box mt={3}>
+          <Grid
+            container
+            spacing={3}
+          >
+            {products.map((product) => (
+              <Grid
+                item
+                key={product.id}
+                lg={4}
+                md={6}
+                xs={12}
+              >
+                <ProductCard product={product} />
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+        <Box
+          mt={3}
+          display="flex"
+          justifyContent="center"
         >
-          {products.map((product) => (
-            <Grid
-              item
-              key={product.id}
-              lg={4}
-              md={6}
-              xs={12}
-            >
-              <ProductCard product={product} />
-            </Grid>
-          ))}
-        </Grid>
-      </div>
-      <div className={classes.pagination}>
-        <Typography
-          color="textPrimary"
-          variant="caption"
-        >
-          1-6 of 20
-        </Typography>
-        <IconButton>
-          <ChevronLeftIcon />
-        </IconButton>
-        <IconButton>
-          <ChevronRightIcon />
-        </IconButton>
-      </div>
+          <Pagination
+            color="primary"
+            count={3}
+            size="small"
+          />
+        </Box>
+      </Container>
     </Page>
   );
 };

@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/styles';
+import {
+  Box,
+  Container,
+  makeStyles
+} from '@material-ui/styles';
 import Page from 'src/components/Page';
 import Table from './Table';
 import Toolbar from './Toolbar';
@@ -7,16 +11,14 @@ import mockData from './mock';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(3)
-  },
-  content: {
-    marginTop: theme.spacing(2)
+    backgroundColor: theme.palette.background.dark,
+    paddingBottom: theme.spacing(3),
+    paddingTop: theme.spacing(3)
   }
 }));
 
 const UserList = () => {
   const classes = useStyles();
-
   const [users] = useState(mockData);
 
   return (
@@ -24,10 +26,12 @@ const UserList = () => {
       className={classes.root}
       title="Users"
     >
-      <Toolbar />
-      <div className={classes.content}>
-        <Table users={users} />
-      </div>
+      <Container maxWidth={false}>
+        <Toolbar />
+        <Box mt={3}>
+          <Table users={users} />
+        </Box>
+      </Container>
     </Page>
   );
 };
