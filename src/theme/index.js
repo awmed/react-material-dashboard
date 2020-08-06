@@ -9,7 +9,6 @@ const theme = createMuiTheme({
       dark: '#F4F6F8',
       paper: colors.common.white
     },
-    divider: colors.grey[200],
     primary: {
       main: colors.indigo[500]
     },
@@ -22,11 +21,7 @@ const theme = createMuiTheme({
     }
   },
   shadows,
-  typography,
-  zIndex: {
-    appBar: 1200,
-    drawer: 1100
-  }
+  typography
 });
 
 export default theme;

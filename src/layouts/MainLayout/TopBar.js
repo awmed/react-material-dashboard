@@ -18,7 +18,7 @@ const useStyles = makeStyles(({
   }
 }));
 
-const Topbar = ({ className, ...rest }) => {
+const TopBar = ({ className, ...rest }) => {
   const classes = useStyles();
 
   return (
@@ -37,8 +37,8 @@ const Topbar = ({ className, ...rest }) => {
   );
 };
 
-Topbar.propTypes = {
+TopBar.propTypes = {
   className: PropTypes.string
 };
 
-export default Topbar;
+export default TopBar;

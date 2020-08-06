@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-const LatestSales = ({ className, ...rest }) => {
+const Sales = ({ className, ...rest }) => {
   const classes = useStyles();
   const theme = useTheme();
 
@@ -106,11 +106,11 @@ const LatestSales = ({ className, ...rest }) => {
       <CardHeader
         action={(
           <Button
+            endIcon={<ArrowDropDownIcon />}
             size="small"
             variant="text"
           >
             Last 7 days
-            <ArrowDropDownIcon />
           </Button>
         )}
         title="Latest Sales"
@@ -142,8 +142,8 @@ const LatestSales = ({ className, ...rest }) => {
   );
 };
 
-LatestSales.propTypes = {
+Sales.propTypes = {
   className: PropTypes.string
 };
 
-export default LatestSales;
+export default Sales;

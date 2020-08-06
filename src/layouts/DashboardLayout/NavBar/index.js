@@ -96,9 +96,13 @@ const NavBar = ({ onMobileClose, openMobile }) => {
       display="flex"
       flexDirection="column"
     >
-      <Box p={2}>
+      <Box
+        alignItems="center"
+        display="flex"
+        flexDirection="column"
+        p={2}
+      >
         <Avatar
-          alt="Person"
           className={classes.avatar}
           component={RouterLink}
           src={user.avatar}
@@ -107,7 +111,7 @@ const NavBar = ({ onMobileClose, openMobile }) => {
         <Typography
           className={classes.name}
           color="textPrimary"
-          variant="h4"
+          variant="h5"
         >
           {user.name}
         </Typography>

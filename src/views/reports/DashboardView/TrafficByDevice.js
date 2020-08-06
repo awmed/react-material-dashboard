@@ -8,17 +8,15 @@ import {
   CardContent,
   CardHeader,
   Divider,
-  IconButton,
+  SvgIcon,
   Typography,
+  colors,
   makeStyles,
   useTheme
 } from '@material-ui/core';
-import {
-  LaptopMac as LaptopMacIcon,
-  PhoneIphone as PhoneIphoneIcon,
-  Refresh as RefreshIcon,
-  TabletMac as TabletMacIcon
-} from '@material-ui/icons';
+import LaptopMacIcon from '@material-ui/icons/LaptopMac';
+import PhoneIcon from '@material-ui/icons/Phone';
+import TabletIcon from '@material-ui/icons/Tablet';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -26,7 +24,7 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-const UsersByDevice = ({ className, ...rest }) => {
+const TrafficByDevice = ({ className, ...rest }) => {
   const classes = useStyles();
   const theme = useTheme();
 
@@ -35,13 +33,13 @@ const UsersByDevice = ({ className, ...rest }) => {
       {
         data: [63, 15, 22],
         backgroundColor: [
-          theme.palette.primary.main,
-          theme.palette.error.main,
-          theme.palette.warning.main
+          colors.indigo[500],
+          colors.red[600],
+          colors.orange[600]
         ],
         borderWidth: 8,
-        borderColor: theme.palette.white,
-        hoverBorderColor: theme.palette.white
+        borderColor: colors.common.white,
+        hoverBorderColor: colors.common.white
       }
     ],
     labels: ['Desktop', 'Tablet', 'Mobile']
@@ -72,21 +70,21 @@ const UsersByDevice = ({ className, ...rest }) => {
   const devices = [
     {
       title: 'Desktop',
-      value: '63',
-      icon: <LaptopMacIcon />,
-      color: theme.palette.primary.main
+      value: 63,
+      icon: LaptopMacIcon,
+      color: colors.indigo[500]
     },
     {
       title: 'Tablet',
-      value: '15',
-      icon: <TabletMacIcon />,
-      color: theme.palette.error.main
+      value: 15,
+      icon: TabletIcon,
+      color: colors.red[600]
     },
     {
       title: 'Mobile',
-      value: '23',
-      icon: <PhoneIphoneIcon />,
-      color: theme.palette.warning.main
+      value: 23,
+      icon: PhoneIcon,
+      color: colors.orange[600]
     }
   ];
 
@@ -95,14 +93,7 @@ const UsersByDevice = ({ className, ...rest }) => {
       className={clsx(classes.root, className)}
       {...rest}
     >
-      <CardHeader
-        action={(
-          <IconButton size="small">
-            <RefreshIcon />
-          </IconButton>
-        )}
-        title="Users By Device"
-      />
+      <CardHeader title="Traffic by Device" />
       <Divider />
       <CardContent>
         <Box
@@ -119,26 +110,29 @@ const UsersByDevice = ({ className, ...rest }) => {
           justifyContent="center"
           mt={2}
         >
-          {devices.map((device) => (
+          {devices.map(({
+            color,
+            icon: Icon,
+            title,
+            value
+          }) => (
             <Box
-              key={device.title}
+              key={title}
               p={1}
               textAlign="center"
             >
-              <span className={classes.deviceIcon}>
-                {device.icon}
-              </span>
+              <Icon color="action" />
               <Typography
                 color="textPrimary"
                 variant="body1"
               >
-                {device.title}
+                {title}
               </Typography>
               <Typography
-                style={{ color: device.color }}
+                style={{ color }}
                 variant="h2"
               >
-                {device.value}
+                {value}
                 %
               </Typography>
             </Box>
@@ -149,8 +143,8 @@ const UsersByDevice = ({ className, ...rest }) => {
   );
 };
 
-UsersByDevice.propTypes = {
+TrafficByDevice.propTypes = {
   className: PropTypes.string
 };
 
-export default UsersByDevice;
+export default TrafficByDevice;

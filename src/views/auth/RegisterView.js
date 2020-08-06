@@ -113,10 +113,6 @@ const RegisterView = () => {
   const classes = useStyles();
   const navigate = useNavigate();
 
-  const handleBack = () => {
-    navigate('/app/dashboard', { replace: true });
-  };
-
   return (
     <Page
       className={classes.root}
@@ -168,7 +164,10 @@ const RegisterView = () => {
         >
           <div className={classes.content}>
             <div className={classes.contentHeader}>
-              <IconButton onClick={handleBack}>
+              <IconButton
+                component={RouterLink}
+                to="/"
+              >
                 <ArrowBackIcon />
               </IconButton>
             </div>
