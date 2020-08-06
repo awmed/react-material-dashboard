@@ -92,8 +92,8 @@ const Sidebar = ({
       variant={variant}
     >
       <div
-        {...rest}
         className={clsx(classes.root, className)}
+        {...rest}
       >
         <Profile />
         <Divider className={classes.divider} />

@@ -18,8 +18,8 @@ const Footer = ({ className, ...rest }) => {
 
   return (
     <div
-      {...rest}
       className={clsx(classes.root, className)}
+      {...rest}
     >
       <Typography
         color="textPrimary"

@@ -20,10 +20,10 @@ const Topbar = ({ className, ...rest }) => {
 
   return (
     <AppBar
-      {...rest}
       className={clsx(classes.root, className)}
       color="primary"
       position="fixed"
+      {...rest}
     >
       <Toolbar>
         <RouterLink to="/app/dashboard">

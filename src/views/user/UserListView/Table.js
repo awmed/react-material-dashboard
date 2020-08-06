@@ -89,8 +89,8 @@ const UsersTable = ({ className, users, ...rest }) => {
 
   return (
     <Card
-      {...rest}
       className={clsx(classes.root, className)}
+      {...rest}
     >
       <CardContent className={classes.content}>
         <PerfectScrollbar>

@@ -35,8 +35,8 @@ const Profile = ({ className, ...rest }) => {
 
   return (
     <div
-      {...rest}
       className={clsx(classes.root, className)}
+      {...rest}
     >
       <Avatar
         alt="Person"

@@ -53,8 +53,8 @@ const ProfileDetails = ({ className, ...rest }) => {
 
   return (
     <Card
-      {...rest}
       className={clsx(classes.root, className)}
+      {...rest}
     >
       <form
         autoComplete="off"

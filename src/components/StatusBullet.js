@@ -52,7 +52,6 @@ const StatusBullet = ({
 
   return (
     <span
-      {...rest}
       className={clsx(
         {
           [classes.root]: true,
@@ -61,6 +60,7 @@ const StatusBullet = ({
         },
         className
       )}
+      {...rest}
     />
   );
 };

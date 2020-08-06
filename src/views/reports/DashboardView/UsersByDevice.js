@@ -107,8 +107,8 @@ const UsersByDevice = ({ className, ...rest }) => {
 
   return (
     <Card
-      {...rest}
       className={clsx(classes.root, className)}
+      {...rest}
     >
       <CardHeader
         action={(

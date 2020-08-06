@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Account = () => {
   const classes = useStyles();
+
   return (
     <Page
       className={classes.root}

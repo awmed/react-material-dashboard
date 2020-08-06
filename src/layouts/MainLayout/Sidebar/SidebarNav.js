@@ -59,8 +59,8 @@ const SidebarNav = ({ className, pages, ...rest }) => {
 
   return (
     <List
-      {...rest}
       className={clsx(classes.root, className)}
+      {...rest}
     >
       {pages.map((page) => (
         <ListItem

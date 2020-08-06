@@ -44,8 +44,8 @@ const ProductCard = ({ className, product, ...rest }) => {
 
   return (
     <Card
-      {...rest}
       className={clsx(classes.root, className)}
+      {...rest}
     >
       <CardContent>
         <div className={classes.imageContainer}>

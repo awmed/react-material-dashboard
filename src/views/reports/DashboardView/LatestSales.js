@@ -15,7 +15,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import palette from 'src/theme/palette';
 
-const useStyles = makeStyles(({
+const useStyles = makeStyles(() => ({
   root: {},
   chartContainer: {
     height: 400,
@@ -102,8 +102,8 @@ const LatestSales = ({ className, ...rest }) => {
 
   return (
     <Card
-      {...rest}
       className={clsx(classes.root, className)}
+      {...rest}
     >
       <CardHeader
         action={(

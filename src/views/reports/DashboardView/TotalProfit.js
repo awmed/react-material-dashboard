@@ -41,8 +41,8 @@ const TotalProfit = ({ className, ...rest }) => {
 
   return (
     <Card
-      {...rest}
       className={clsx(classes.root, className)}
+      {...rest}
     >
       <CardContent>
         <Grid

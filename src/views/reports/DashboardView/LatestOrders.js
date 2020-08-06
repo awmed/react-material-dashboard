@@ -114,13 +114,12 @@ const useStyles = makeStyles((theme) => ({
 
 const LatestOrders = ({ className, ...rest }) => {
   const classes = useStyles();
-
   const [orders] = useState(mockData);
 
   return (
     <Card
-      {...rest}
       className={clsx(classes.root, className)}
+      {...rest}
     >
       <CardHeader
         action={(

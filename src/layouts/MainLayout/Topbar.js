@@ -34,8 +34,8 @@ const Topbar = ({ className, onSidebarOpen, ...rest }) => {
 
   return (
     <AppBar
-      {...rest}
       className={clsx(classes.root, className)}
+      {...rest}
     >
       <Toolbar>
         <RouterLink to="/app/dashboard">

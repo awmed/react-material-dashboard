@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+  import React, { useState } from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { v1 as uuid } from 'uuid';
@@ -73,13 +73,12 @@ const useStyles = makeStyles(({
 
 const LatestProducts = ({ className, ...rest }) => {
   const classes = useStyles();
-
   const [products] = useState(mockData);
 
   return (
     <Card
-      {...rest}
       className={clsx(classes.root, className)}
+      {...rest}
     >
       <CardHeader
         subtitle={`${products.length} in total`}

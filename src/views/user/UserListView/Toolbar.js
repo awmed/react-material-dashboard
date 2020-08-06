@@ -34,8 +34,8 @@ const Toolbar = ({ className, ...rest }) => {
 
   return (
     <div
-      {...rest}
       className={clsx(classes.root, className)}
+      {...rest}
     >
       <div className={classes.row}>
         <span className={classes.spacer} />

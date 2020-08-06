@@ -38,13 +38,12 @@ const SearchInput = ({
 
   return (
     <Paper
-      {...rest}
       className={clsx(classes.root, className)}
       style={style}
+      {...rest}
     >
       <SearchIcon className={classes.icon} />
       <Input
-        {...rest}
         className={classes.input}
         disableUnderline
         onChange={onChange}
