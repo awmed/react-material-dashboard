@@ -24,7 +24,7 @@ const Account = () => {
       className={classes.root}
       title="Account"
     >
-      <Container maxWidth={3}>
+      <Container maxWidth={false}>
         <Grid
           container
           spacing={3}

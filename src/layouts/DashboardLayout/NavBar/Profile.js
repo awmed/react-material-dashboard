@@ -11,7 +11,7 @@ import {
 const user = {
   name: 'Shen Zhi',
   avatar: '/static/images/avatars/avatar_11.png',
-  bio: 'Brain Director'
+  jobTitle: 'Senior Developer'
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -53,10 +53,10 @@ const Profile = ({ className, ...rest }) => {
         {user.name}
       </Typography>
       <Typography
-        color="textPrimary"
+        color="textSecondary"
         variant="body2"
       >
-        {user.bio}
+        {user.jobTitle}
       </Typography>
     </div>
   );

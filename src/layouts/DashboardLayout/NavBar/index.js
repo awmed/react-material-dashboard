@@ -15,7 +15,7 @@ import {
   ShoppingBasket as ShoppingBasketIcon
 } from '@material-ui/icons';
 import Profile from './Profile';
-import SidebarNav from './SidebarNav';
+import SidebarNav from './NavItem';
 import UpgradePlan from './UpgradePlan';
 
 const pages = [
@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Sidebar = ({
+const NavBar = ({
   className,
   open,
   variant,
@@ -107,11 +107,11 @@ const Sidebar = ({
   );
 };
 
-Sidebar.propTypes = {
+NavBar.propTypes = {
   className: PropTypes.string,
   onClose: PropTypes.func,
   open: PropTypes.bool.isRequired,
   variant: PropTypes.string.isRequired
 };
 
-export default Sidebar;
+export default NavBar;

@@ -6,8 +6,8 @@ import {
   makeStyles,
   useTheme
 } from '@material-ui/core';
-import Sidebar from './Sidebar';
-import Topbar from './Topbar';
+import NavBar from './NavBar';
+import Topbar from './Top';
 import Footer from './Footer';
 
 const useStyles = makeStyles((theme) => ({
@@ -52,7 +52,7 @@ const DashboardLayout = () => {
       })}
     >
       <Topbar onSidebarOpen={handleSidebarOpen} />
-      <Sidebar
+      <NavBar
         onClose={handleSidebarClose}
         open={shouldOpenSidebar}
         variant={isDesktop ? 'persistent' : 'temporary'}
