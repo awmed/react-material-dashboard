@@ -1,117 +1,174 @@
-import React from 'react';
-import clsx from 'clsx';
+import React, { useEffect } from 'react';
+import {
+  Link as RouterLink,
+  useLocation
+} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
+  Avatar,
+  Box,
   Divider,
   Drawer,
+  Hidden,
+  List,
+  Typography,
   makeStyles
 } from '@material-ui/core';
 import {
-  AccountBox as AccountBoxIcon,
-  Dashboard as DashboardIcon,
-  LockOpen as LockOpenIcon,
-  People as PeopleIcon,
+  BarChart as BarChartIcon,
+  LogIn as LogInIcon,
   Settings as SettingsIcon,
-  ShoppingBasket as ShoppingBasketIcon
-} from '@material-ui/icons';
-import Profile from './Profile';
-import SidebarNav from './NavItem';
-import UpgradePlan from './UpgradePlan';
+  ShoppingBag as ShoppingBagIcon,
+  User as UserIcon,
+  Users as UsersIcon
+} from 'react-feather';
+import NavItem from './NavItem';
 
-const pages = [
+const user = {
+  avatar: '/static/images/avatars/avatar_11.png',
+  jobTitle: 'Senior Developer',
+  name: 'Shen Zhi'
+};
+
+const items = [
   {
-    title: 'Dashboard',
     href: '/app/dashboard',
-    icon: <DashboardIcon />
+    icon: BarChartIcon,
+    title: 'Dashboard'
   },
   {
-    title: 'Users',
     href: '/app/users',
-    icon: <PeopleIcon />
+    icon: UsersIcon,
+    title: 'Users'
   },
   {
-    title: 'Products',
     href: '/app/products',
-    icon: <ShoppingBasketIcon />
+    icon: ShoppingBagIcon,
+    title: 'Products'
   },
   {
-    title: 'Account',
     href: '/app/account',
-    icon: <AccountBoxIcon />
+    icon: UserIcon,
+    title: 'Account'
   },
   {
-    title: 'Settings',
     href: '/app/settings',
-    icon: <SettingsIcon />
+    icon: SettingsIcon,
+    title: 'Settings'
   },
   {
-    title: 'Authentication',
     href: '/login',
-    icon: <LockOpenIcon />
+    icon: LogInIcon,
+    title: 'Authentication'
   }
 ];
 
-const useStyles = makeStyles((theme) => ({
-  drawer: {
-    width: 240,
-    [theme.breakpoints.up('lg')]: {
-      marginTop: 64,
-      height: 'calc(100% - 64px)'
-    }
+const useStyles = makeStyles(() => ({
+  mobileDrawer: {
+    width: 256
   },
-  root: {
-    backgroundColor: theme.palette.white,
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%',
-    padding: theme.spacing(2)
+  desktopDrawer: {
+    width: 256,
+    top: 64,
+    height: 'calc(100% - 64px)'
   },
-  divider: {
-    margin: theme.spacing(2, 0)
-  },
-  nav: {
-    marginBottom: theme.spacing(2)
+  avatar: {
+    cursor: 'pointer',
+    width: 64,
+    height: 64
   }
 }));
 
-const NavBar = ({
-  className,
-  open,
-  variant,
-  onClose,
-  ...rest
-}) => {
+const NavBar = ({ onMobileClose, openMobile }) => {
   const classes = useStyles();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (openMobile && onMobileClose) {
+      onMobileClose();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
+
+  const content = (
+    <Box
+      height="100%"
+      display="flex"
+      flexDirection="column"
+    >
+      <Box p={2}>
+        <Avatar
+          alt="Person"
+          className={classes.avatar}
+          component={RouterLink}
+          src={user.avatar}
+          to="/settings"
+        />
+        <Typography
+          className={classes.name}
+          color="textPrimary"
+          variant="h4"
+        >
+          {user.name}
+        </Typography>
+        <Typography
+          color="textSecondary"
+          variant="body2"
+        >
+          {user.jobTitle}
+        </Typography>
+      </Box>
+      <Divider />
+      <Box p={2}>
+        <List>
+          {items.map((item) => (
+            <NavItem
+              href={item.href}
+              key={item.title}
+              title={item.title}
+              icon={item.icon}
+            />
+          ))}
+        </List>
+      </Box>
+    </Box>
+  );
 
   return (
-    <Drawer
-      anchor="left"
-      classes={{ paper: classes.drawer }}
-      onClose={onClose}
-      open={open}
-      variant={variant}
-    >
-      <div
-        className={clsx(classes.root, className)}
-        {...rest}
-      >
-        <Profile />
-        <Divider className={classes.divider} />
-        <SidebarNav
-          className={classes.nav}
-          pages={pages}
-        />
-        <UpgradePlan />
-      </div>
-    </Drawer>
+    <>
+      <Hidden lgUp>
+        <Drawer
+          anchor="left"
+          classes={{ paper: classes.mobileDrawer }}
+          onClose={onMobileClose}
+          open={openMobile}
+          variant="temporary"
+        >
+          {content}
+        </Drawer>
+      </Hidden>
+      <Hidden mdDown>
+        <Drawer
+          anchor="left"
+          classes={{ paper: classes.desktopDrawer }}
+          open
+          variant="persistent"
+        >
+          {content}
+        </Drawer>
+      </Hidden>
+    </>
   );
 };
 
 NavBar.propTypes = {
-  className: PropTypes.string,
-  onClose: PropTypes.func,
-  open: PropTypes.bool.isRequired,
-  variant: PropTypes.string.isRequired
+  onMobileClose: PropTypes.func,
+  openMobile: PropTypes.bool
+};
+
+NavBar.defaultProps = {
+  onMobileClose: () => {},
+  openMobile: false
 };
 
 export default NavBar;

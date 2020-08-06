@@ -1,66 +1,56 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import clsx from 'clsx';
-import {
-  useMediaQuery,
-  makeStyles,
-  useTheme
-} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import NavBar from './NavBar';
-import Topbar from './Top';
-import Footer from './Footer';
+import TopBar from './TopBar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop: 56,
+    backgroundColor: theme.palette.background.dark,
+    display: 'flex',
     height: '100%',
-    [theme.breakpoints.up('sm')]: {
-      paddingTop: 64
+    overflow: 'hidden',
+    width: '100%'
+  },
+  wrapper: {
+    display: 'flex',
+    flex: '1 1 auto',
+    overflow: 'hidden',
+    paddingTop: 64,
+    [theme.breakpoints.up('lg')]: {
+      paddingLeft: 256
     }
   },
-  shiftContent: {
-    paddingLeft: 240
+  contentContainer: {
+    display: 'flex',
+    flex: '1 1 auto',
+    overflow: 'hidden'
   },
   content: {
-    height: '100%'
+    flex: '1 1 auto',
+    height: '100%',
+    overflow: 'auto'
   }
 }));
 
 const DashboardLayout = () => {
   const classes = useStyles();
-  const theme = useTheme();
-  const [openSidebar, setOpenSidebar] = useState(false);
-  const isDesktop = useMediaQuery(theme.breakpoints.up('lg'), {
-    defaultMatches: true
-  });
-
-  const handleSidebarOpen = () => {
-    setOpenSidebar(true);
-  };
-
-  const handleSidebarClose = () => {
-    setOpenSidebar(false);
-  };
-
-  const shouldOpenSidebar = isDesktop ? true : openSidebar;
+  const [isMobileNavOpen, setMobileNavOpen] = useState(false);
 
   return (
-    <div
-      className={clsx({
-        [classes.root]: true,
-        [classes.shiftContent]: isDesktop
-      })}
-    >
-      <Topbar onSidebarOpen={handleSidebarOpen} />
+    <div className={classes.root}>
+      <TopBar onMobileNavOpen={() => setMobileNavOpen(true)} />
       <NavBar
-        onClose={handleSidebarClose}
-        open={shouldOpenSidebar}
-        variant={isDesktop ? 'persistent' : 'temporary'}
+        onMobileClose={() => setMobileNavOpen(false)}
+        openMobile={isMobileNavOpen}
       />
-      <main className={classes.content}>
-        <Outlet />
-        <Footer />
-      </main>
+      <div className={classes.wrapper}>
+        <div className={classes.contentContainer}>
+          <div className={classes.content}>
+            <Outlet />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,15 +1,31 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core';
-import Topbar from './Topbar';
+import TopBar from './Top';
 
-const useStyles = makeStyles(({
+const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop: 64,
-    height: '100%'
+    backgroundColor: theme.palette.background.default,
+    display: 'flex',
+    height: '100%',
+    overflow: 'hidden',
+    width: '100%'
+  },
+  wrapper: {
+    display: 'flex',
+    flex: '1 1 auto',
+    overflow: 'hidden',
+    paddingTop: 64
+  },
+  contentContainer: {
+    display: 'flex',
+    flex: '1 1 auto',
+    overflow: 'hidden'
   },
   content: {
-    height: '100%'
+    flex: '1 1 auto',
+    height: '100%',
+    overflow: 'auto'
   }
 }));
 
@@ -18,10 +34,14 @@ const MainLayout = () => {
 
   return (
     <div className={classes.root}>
-      <Topbar />
-      <main className={classes.content}>
-        <Outlet />
-      </main>
+      <TopBar />
+      <div className={classes.wrapper}>
+        <div className={classes.contentContainer}>
+          <div className={classes.content}>
+            <Outlet />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

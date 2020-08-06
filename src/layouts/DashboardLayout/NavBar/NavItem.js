@@ -4,13 +4,11 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import {
   Button,
-  List,
   ListItem,
   makeStyles
 } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
   item: {
     display: 'flex',
     paddingTop: 0,
@@ -26,55 +24,62 @@ const useStyles = makeStyles((theme) => ({
     width: '100%'
   },
   icon: {
-    alignItems: 'center',
-    display: 'flex',
-    height: 24,
-    marginRight: theme.spacing(1),
-    width: 24
+    marginRight: theme.spacing(1)
+  },
+  title: {
+    marginRight: 'auto'
   },
   active: {
     color: theme.palette.primary.main,
-    fontWeight: theme.typography.fontWeightMedium,
+    '& $title': {
+      fontWeight: theme.typography.fontWeightMedium
+    },
     '& $icon': {
       color: theme.palette.primary.main
     }
   }
 }));
 
-const SidebarNav = ({ className, pages, ...rest }) => {
+const NavItem = ({
+  className,
+  href,
+  icon: Icon,
+  title,
+  ...rest
+}) => {
   const classes = useStyles();
 
   return (
-    <List
-      className={clsx(classes.root, className)}
+    <ListItem
+      className={clsx(classes.item, className)}
+      disableGutters
       {...rest}
     >
-      {pages.map((page) => (
-        <ListItem
-          className={classes.item}
-          disableGutters
-          key={page.title}
-        >
-          <Button
-            activeClassName={classes.active}
-            className={classes.button}
-            component={RouterLink}
-            to={page.href}
-          >
-            <div className={classes.icon}>
-              {page.icon}
-            </div>
-            {page.title}
-          </Button>
-        </ListItem>
-      ))}
-    </List>
+      <Button
+        activeClassName={classes.active}
+        className={classes.button}
+        component={RouterLink}
+        to={href}
+      >
+        {Icon && (
+          <Icon
+            className={classes.icon}
+            size="20"
+          />
+        )}
+        <span className={classes.title}>
+          {title}
+        </span>
+      </Button>
+    </ListItem>
   );
 };
 
-SidebarNav.propTypes = {
+NavItem.propTypes = {
   className: PropTypes.string,
-  pages: PropTypes.array.isRequired
+  href: PropTypes.string,
+  icon: PropTypes.elementType,
+  title: PropTypes.string
 };
 
-export default SidebarNav;
+export default NavItem;

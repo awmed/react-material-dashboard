@@ -16,16 +16,17 @@ import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
 import InputIcon from '@material-ui/icons/Input';
 import Logo from 'src/components/Logo';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     boxShadow: 'none'
   },
-  signOutButton: {
-    marginLeft: theme.spacing(1)
+  avatar: {
+    width: 60,
+    height: 60
   }
 }));
 
-const Topbar = ({
+const TopBar = ({
   className,
   onSidebarOpen,
   ...rest
@@ -39,7 +40,7 @@ const Topbar = ({
       {...rest}
     >
       <Toolbar>
-        <RouterLink to="/app/dashboard">
+        <RouterLink to="/">
           <Logo />
         </RouterLink>
         <Box flexGrow={1} />
@@ -53,10 +54,7 @@ const Topbar = ({
               <NotificationsIcon />
             </Badge>
           </IconButton>
-          <IconButton
-            className={classes.signOutButton}
-            color="inherit"
-          >
+          <IconButton color="inherit">
             <InputIcon />
           </IconButton>
         </Hidden>
@@ -73,9 +71,9 @@ const Topbar = ({
   );
 };
 
-Topbar.propTypes = {
+TopBar.propTypes = {
   className: PropTypes.string,
   onSidebarOpen: PropTypes.func
 };
 
-export default Topbar;
+export default TopBar;
