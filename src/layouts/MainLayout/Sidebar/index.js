@@ -18,6 +18,39 @@ import Profile from './Profile';
 import SidebarNav from './SidebarNav';
 import UpgradePlan from './UpgradePlan';
 
+const pages = [
+  {
+    title: 'Dashboard',
+    href: '/app/dashboard',
+    icon: <DashboardIcon />
+  },
+  {
+    title: 'Users',
+    href: '/app/users',
+    icon: <PeopleIcon />
+  },
+  {
+    title: 'Products',
+    href: '/app/products',
+    icon: <ShoppingBasketIcon />
+  },
+  {
+    title: 'Authentication',
+    href: '/login',
+    icon: <LockOpenIcon />
+  },
+  {
+    title: 'Account',
+    href: '/app/account',
+    icon: <AccountBoxIcon />
+  },
+  {
+    title: 'Settings',
+    href: '/app/settings',
+    icon: <SettingsIcon />
+  }
+];
+
 const useStyles = makeStyles((theme) => ({
   drawer: {
     width: 240,
@@ -49,39 +82,6 @@ const Sidebar = ({
   ...rest
 }) => {
   const classes = useStyles();
-
-  const pages = [
-    {
-      title: 'Dashboard',
-      href: '/app/dashboard',
-      icon: <DashboardIcon />
-    },
-    {
-      title: 'Users',
-      href: '/app/users',
-      icon: <PeopleIcon />
-    },
-    {
-      title: 'Products',
-      href: '/app/products',
-      icon: <ShoppingBasketIcon />
-    },
-    {
-      title: 'Authentication',
-      href: '/login',
-      icon: <LockOpenIcon />
-    },
-    {
-      title: 'Account',
-      href: '/app/account',
-      icon: <AccountBoxIcon />
-    },
-    {
-      title: 'Settings',
-      href: '/app/settings',
-      icon: <SettingsIcon />
-    }
-  ];
 
   return (
     <Drawer

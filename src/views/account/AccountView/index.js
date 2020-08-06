@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Container,
   Grid,
   makeStyles
 } from '@material-ui/core';
@@ -9,7 +10,9 @@ import ProfileDetails from './ProfileDetails';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(4)
+    backgroundColor: theme.palette.background.dark,
+    paddingBottom: theme.spacing(3),
+    paddingTop: theme.spacing(3)
   }
 }));
 
@@ -21,27 +24,29 @@ const Account = () => {
       className={classes.root}
       title="Account"
     >
-      <Grid
-        container
-        spacing={4}
-      >
+      <Container maxWidth={3}>
         <Grid
-          item
-          lg={4}
-          md={6}
-          xs={12}
+          container
+          spacing={3}
         >
-          <Profile />
+          <Grid
+            item
+            lg={4}
+            md={6}
+            xs={12}
+          >
+            <Profile />
+          </Grid>
+          <Grid
+            item
+            lg={8}
+            md={6}
+            xs={12}
+          >
+            <ProfileDetails />
+          </Grid>
         </Grid>
-        <Grid
-          item
-          lg={8}
-          md={6}
-          xs={12}
-        >
-          <ProfileDetails />
-        </Grid>
-      </Grid>
+      </Container>
     </Page>
   );
 };

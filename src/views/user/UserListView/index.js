@@ -3,7 +3,7 @@ import {
   Box,
   Container,
   makeStyles
-} from '@material-ui/styles';
+} from '@material-ui/core';
 import Page from 'src/components/Page';
 import Table from './Table';
 import Toolbar from './Toolbar';

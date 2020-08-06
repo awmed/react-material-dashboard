@@ -1,6 +1,7 @@
 import React from 'react';
 import {
-  Grid,
+  Box,
+  Container,
   Typography,
   makeStyles
 } from '@material-ui/core';
@@ -8,7 +9,9 @@ import Page from 'src/components/Page';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(4)
+    backgroundColor: theme.palette.background.dark,
+    paddingBottom: theme.spacing(3),
+    paddingTop: theme.spacing(3)
   },
   content: {
     paddingTop: 150,
@@ -30,38 +33,37 @@ const NotFoundView = () => {
       className={classes.root}
       title="404"
     >
-      <Grid
-        container
-        justify="center"
-        spacing={4}
-      >
-        <Grid
-          item
-          lg={6}
-          xs={12}
+      <Container maxWidth={false}>
+        <Box
+          display="flex"
+          justifyContent="center"
         >
-          <div className={classes.content}>
+          <div>
             <Typography
+              align="center"
               color="textPrimary"
               variant="h1"
             >
               404: The page you are looking for isn’t here
             </Typography>
             <Typography
+              align="center"
               color="textPrimary"
               variant="subtitle2"
             >
               You either tried some shady route or you came here by mistake.
               Whichever it is, try using the navigation
             </Typography>
-            <img
-              alt="Under development"
-              className={classes.image}
-              src="/static/images/undraw_page_not_found_su7k.svg"
-            />
+            <Box textAlign="center">
+              <img
+                alt="Under development"
+                className={classes.image}
+                src="/static/images/undraw_page_not_found_su7k.svg"
+              />
+            </Box>
           </div>
-        </Grid>
-      </Grid>
+        </Box>
+      </Container>
     </Page>
   );
 };
