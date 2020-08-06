@@ -10,7 +10,7 @@ import {
   ChevronLeft as ChevronLeftIcon
 } from '@material-ui/icons';
 import Page from 'src/components/Page';
-import ProductsToolbar from './ProductsToolbar';
+import Toolbar from './Toolbar';
 import ProductCard from './ProductCard';
 import mockData from './mock';
 
@@ -38,7 +38,7 @@ const ProductList = () => {
       className={classes.root}
       title="Products"
     >
-      <ProductsToolbar />
+      <Toolbar />
       <div className={classes.content}>
         <Grid
           container
@@ -58,7 +58,12 @@ const ProductList = () => {
         </Grid>
       </div>
       <div className={classes.pagination}>
-        <Typography variant="caption">1-6 of 20</Typography>
+        <Typography
+          color="textPrimary"
+          variant="caption"
+        >
+          1-6 of 20
+        </Typography>
         <IconButton>
           <ChevronLeftIcon />
         </IconButton>

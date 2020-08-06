@@ -13,6 +13,7 @@ import {
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
 import InputIcon from '@material-ui/icons/Input';
+import Logo from 'src/components/Logo';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,11 +38,8 @@ const Topbar = ({ className, onSidebarOpen, ...rest }) => {
       className={clsx(classes.root, className)}
     >
       <Toolbar>
-        <RouterLink to="/">
-          <img
-            alt="Logo"
-            src="/images/logos/logo--white.svg"
-          />
+        <RouterLink to="/app/dashboard">
+          <Logo />
         </RouterLink>
         <div className={classes.flexGrow} />
         <Hidden mdDown>

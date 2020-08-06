@@ -1,33 +1,24 @@
+import 'react-perfect-scrollbar/dist/css/styles.css';
 import React from 'react';
-import { Router } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
+import { useRoutes } from 'react-router-dom';
 import { Chart } from 'react-chartjs-2';
 import { ThemeProvider } from '@material-ui/styles';
-import validate from 'validate.js';
+import GlobalStyles from 'src/components/GlobalStyles';
 import chartjs from 'src/helpers/chartjs';
-import routes, { renderRoutes } from 'src/routes';
-import theme from './theme';
-import 'react-perfect-scrollbar/dist/css/styles.css';
-import './assets/scss/index.scss';
-import validators from './common/validators';
-
-const browserHistory = createBrowserHistory();
+import theme from 'src/theme';
+import routes from 'src/routes';
 
 Chart.helpers.extend(Chart.elements.Rectangle.prototype, {
   draw: chartjs.draw
 });
 
-validate.validators = {
-  ...validate.validators,
-  ...validators
-};
-
 const App = () => {
+  const routing = useRoutes(routes);
+
   return (
     <ThemeProvider theme={theme}>
-      <Router history={browserHistory}>
-        {renderRoutes(routes)}
-      </Router>
+      <GlobalStyles />
+      {routing}
     </ThemeProvider>
   );
 };

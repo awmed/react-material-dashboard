@@ -133,7 +133,12 @@ const UsersByDevice = ({ className, ...rest }) => {
               key={device.title}
             >
               <span className={classes.deviceIcon}>{device.icon}</span>
-              <Typography variant="body1">{device.title}</Typography>
+              <Typography
+                color="textPrimary"
+                variant="body1"
+              >
+                {device.title}
+              </Typography>
               <Typography
                 style={{ color: device.color }}
                 variant="h2"

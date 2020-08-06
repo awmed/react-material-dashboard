@@ -48,6 +48,7 @@ const UpgradePlan = ({ className, ...rest }) => {
       <div className={classes.content}>
         <Typography
           align="center"
+          color="textPrimary"
           gutterBottom
           variant="h6"
         >
@@ -55,6 +56,7 @@ const UpgradePlan = ({ className, ...rest }) => {
         </Typography>
         <Typography
           align="center"
+          color="textPrimary"
           variant="body2"
         >
           Upgrade to Devias Kit PRO and get even more components

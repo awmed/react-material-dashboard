@@ -47,11 +47,17 @@ const Profile = ({ className, ...rest }) => {
       />
       <Typography
         className={classes.name}
+        color="textPrimary"
         variant="h4"
       >
         {user.name}
       </Typography>
-      <Typography variant="body2">{user.bio}</Typography>
+      <Typography
+        color="textPrimary"
+        variant="body2"
+      >
+        {user.bio}
+      </Typography>
     </div>
   );
 };

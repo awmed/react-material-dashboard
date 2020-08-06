@@ -9,12 +9,10 @@ import {
 import {
   AccountBox as AccountBoxIcon,
   Dashboard as DashboardIcon,
-  Image as ImageIcon,
   LockOpen as LockOpenIcon,
   People as PeopleIcon,
   Settings as SettingsIcon,
-  ShoppingBasket as ShoppingBasketIcon,
-  TextFields as TextFieldsIcon
+  ShoppingBasket as ShoppingBasketIcon
 } from '@material-ui/icons';
 import Profile from './Profile';
 import SidebarNav from './SidebarNav';
@@ -55,17 +53,17 @@ const Sidebar = ({
   const pages = [
     {
       title: 'Dashboard',
-      href: '/dashboard',
+      href: '/app/dashboard',
       icon: <DashboardIcon />
     },
     {
       title: 'Users',
-      href: '/users',
+      href: '/app/users',
       icon: <PeopleIcon />
     },
     {
       title: 'Products',
-      href: '/products',
+      href: '/app/products',
       icon: <ShoppingBasketIcon />
     },
     {
@@ -74,23 +72,13 @@ const Sidebar = ({
       icon: <LockOpenIcon />
     },
     {
-      title: 'Typography',
-      href: '/typography',
-      icon: <TextFieldsIcon />
-    },
-    {
-      title: 'Icons',
-      href: '/icons',
-      icon: <ImageIcon />
-    },
-    {
       title: 'Account',
-      href: '/account',
+      href: '/app/account',
       icon: <AccountBoxIcon />
     },
     {
       title: 'Settings',
-      href: '/settings',
+      href: '/app/settings',
       icon: <SettingsIcon />
     }
   ];

@@ -1,116 +1,39 @@
-import React, {
-  Suspense,
-  Fragment,
-  lazy
-} from 'react';
-import {
-  Switch,
-  Redirect,
-  Route
-} from 'react-router-dom';
+import React from 'react';
+import { Navigate } from 'react-router-dom';
 import MainLayout from 'src/layouts/MainLayout';
 import MinimalLayout from 'src/layouts/MinimalLayout';
-import LoadingScreen from 'src/components/LoadingScreen';
-
-export const renderRoutes = (routes = []) => (
-  <Suspense fallback={<LoadingScreen />}>
-    <Switch>
-      {routes.map((route, i) => {
-        const Guard = route.guard || Fragment;
-        const Layout = route.layout || Fragment;
-        const Component = route.component;
-
-        return (
-          <Route
-            exact={route.exact}
-            // eslint-disable-next-line react/no-array-index-key
-            key={i}
-            path={route.path}
-            render={(props) => (
-              <Guard>
-                <Layout>
-                  {route.routes
-                    ? renderRoutes(route.routes)
-                    : <Component {...props} />}
-                </Layout>
-              </Guard>
-            )}
-          />
-        );
-      })}
-    </Switch>
-  </Suspense>
-);
+import DashboardView from 'src/views/reports/DashboardView';
+import AccountView from 'src/views/account/AccountView';
+import ProductListView from 'src/views/product/ProductListView';
+import SettingsView from 'src/views/settings/SettingsView';
+import UserListView from 'src/views/user/UserListView';
+import LoginView from 'src/views/auth/LoginView';
+import RegisterView from 'src/views/auth/RegisterView';
+import NotFoundView from 'src/views/errors/NotFoundView';
 
 const routes = [
   {
-    exact: true,
+    path: 'app',
+    element: <MainLayout />,
+    children: [
+      { path: 'dashboard', element: <DashboardView /> },
+      { path: 'account', element: <AccountView /> },
+      { path: 'products', element: <ProductListView /> },
+      { path: 'settings', element: <SettingsView /> },
+      { path: 'users', element: <UserListView /> },
+      { path: '*', element: <Navigate to="/404" /> }
+    ]
+  },
+  {
     path: '/',
-    layout: MainLayout,
-    component: lazy(() => import('src/views/reports/DashboardView'))
-  },
-  {
-    exact: true,
-    path: '/dashboard',
-    layout: MainLayout,
-    component: lazy(() => import('src/views/reports/DashboardView'))
-  },
-  {
-    exact: true,
-    path: '/users',
-    layout: MainLayout,
-    component: lazy(() => import('src/views/user/UserListView'))
-  },
-  {
-    exact: true,
-    path: '/products',
-    layout: MainLayout,
-    component: lazy(() => import('src/views/product/ProductListView'))
-  },
-  {
-    exact: true,
-    path: '/typography',
-    layout: MainLayout,
-    component: lazy(() => import('src/views/typography/TypographyView'))
-  },
-  {
-    exact: true,
-    path: '/icons',
-    layout: MainLayout,
-    component: lazy(() => import('src/views/icons/IconsView'))
-  },
-  {
-    exact: true,
-    path: '/account',
-    layout: MainLayout,
-    component: lazy(() => import('src/views/account/AccountView'))
-  },
-  {
-    exact: true,
-    path: '/settings',
-    layout: MainLayout,
-    component: lazy(() => import('src/views/settings/SettingsView'))
-  },
-  {
-    exact: true,
-    path: '/404',
-    layout: MinimalLayout,
-    component: lazy(() => import('src/views/errors/NotFoundView'))
-  },
-  {
-    exact: true,
-    path: '/login',
-    layout: MinimalLayout,
-    component: lazy(() => import('src/views/auth/LoginView'))
-  },
-  {
-    exact: true,
-    path: '/register',
-    layout: MinimalLayout,
-    component: lazy(() => import('src/views/auth/RegisterView'))
-  },
-  {
-    component: () => <Redirect to="/404" />
+    element: <MinimalLayout />,
+    children: [
+      { path: '/', element: <Navigate to="/app/dashboard" /> },
+      { path: 'login', element: <LoginView /> },
+      { path: 'register', element: <RegisterView /> },
+      { path: '404', element: <NotFoundView /> },
+      { path: '*', element: <Navigate to="/404" /> }
+    ]
   }
 ];
 

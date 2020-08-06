@@ -47,13 +47,14 @@ const Profile = ({ className, ...rest }) => {
 
   return (
     <Card
-      {...rest}
       className={clsx(classes.root, className)}
+      {...rest}
     >
       <CardContent>
         <div className={classes.details}>
           <div>
             <Typography
+              color="textPrimary"
               gutterBottom
               variant="h2"
             >
@@ -80,7 +81,12 @@ const Profile = ({ className, ...rest }) => {
           />
         </div>
         <div className={classes.progress}>
-          <Typography variant="body1">Profile Completeness: 70%</Typography>
+          <Typography
+            color="textPrimary"
+            variant="body1"
+          >
+            Profile Completeness: 70%
+          </Typography>
           <LinearProgress
             value={70}
             variant="determinate"

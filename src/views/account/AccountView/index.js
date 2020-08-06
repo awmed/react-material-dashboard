@@ -28,7 +28,6 @@ const Account = () => {
           item
           lg={4}
           md={6}
-          xl={4}
           xs={12}
         >
           <Profile />
@@ -37,7 +36,6 @@ const Account = () => {
           item
           lg={8}
           md={6}
-          xl={8}
           xs={12}
         >
           <ProfileDetails />

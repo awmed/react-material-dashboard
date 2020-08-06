@@ -41,10 +41,16 @@ const NotFoundView = () => {
           xs={12}
         >
           <div className={classes.content}>
-            <Typography variant="h1">
+            <Typography
+              color="textPrimary"
+              variant="h1"
+            >
               404: The page you are looking for isn’t here
             </Typography>
-            <Typography variant="subtitle2">
+            <Typography
+              color="textPrimary"
+              variant="subtitle2"
+            >
               You either tried some shady route or you came here by mistake.
               Whichever it is, try using the navigation
             </Typography>

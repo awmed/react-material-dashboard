@@ -21,7 +21,10 @@ const Footer = ({ className, ...rest }) => {
       {...rest}
       className={clsx(classes.root, className)}
     >
-      <Typography variant="body1">
+      <Typography
+        color="textPrimary"
+        variant="body1"
+      >
         &copy;
         {' '}
         <Link
@@ -33,7 +36,10 @@ const Footer = ({ className, ...rest }) => {
         </Link>
         . 2020
       </Typography>
-      <Typography variant="caption">
+      <Typography
+        color="textPrimary"
+        variant="caption"
+      >
         Created with love for the environment. By designers and developers who
         love to work together in offices!
       </Typography>

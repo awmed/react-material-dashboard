@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import { Outlet } from 'react-router-dom';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/styles';
 import { useMediaQuery } from '@material-ui/core';
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const MainLayout = ({ children }) => {
+const MainLayout = () => {
   const classes = useStyles();
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'), {
@@ -56,15 +56,11 @@ const MainLayout = ({ children }) => {
         variant={isDesktop ? 'persistent' : 'temporary'}
       />
       <main className={classes.content}>
-        {children}
+        <Outlet />
         <Footer />
       </main>
     </div>
   );
-};
-
-MainLayout.propTypes = {
-  children: PropTypes.node
 };
 
 export default MainLayout;

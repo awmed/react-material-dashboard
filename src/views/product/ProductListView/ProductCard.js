@@ -57,6 +57,7 @@ const ProductCard = ({ className, product, ...rest }) => {
         </div>
         <Typography
           align="center"
+          color="textPrimary"
           gutterBottom
           variant="h4"
         >
@@ -64,6 +65,7 @@ const ProductCard = ({ className, product, ...rest }) => {
         </Typography>
         <Typography
           align="center"
+          color="textPrimary"
           variant="body1"
         >
           {product.description}
@@ -81,6 +83,7 @@ const ProductCard = ({ className, product, ...rest }) => {
           >
             <AccessTimeIcon className={classes.statsIcon} />
             <Typography
+              color="textPrimary"
               display="inline"
               variant="body2"
             >
@@ -93,6 +96,7 @@ const ProductCard = ({ className, product, ...rest }) => {
           >
             <GetAppIcon className={classes.statsIcon} />
             <Typography
+              color="textPrimary"
               display="inline"
               variant="body2"
             >

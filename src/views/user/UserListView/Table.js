@@ -48,15 +48,15 @@ const UsersTable = ({ className, users, ...rest }) => {
   const [page, setPage] = useState(0);
 
   const handleSelectAll = (event) => {
-    let selectedUsers;
+    let newSelectedUsers;
 
     if (event.target.checked) {
-      selectedUsers = users.map((user) => user.id);
+      newSelectedUsers = users.map((user) => user.id);
     } else {
-      selectedUsers = [];
+      newSelectedUsers = [];
     }
 
-    setSelectedUsers(selectedUsers);
+    setSelectedUsers(newSelectedUsers);
   };
 
   const handleSelectOne = (event, id) => {
@@ -79,8 +79,8 @@ const UsersTable = ({ className, users, ...rest }) => {
     setSelectedUsers(newSelectedUsers);
   };
 
-  const handlePageChange = (event, page) => {
-    setPage(page);
+  const handlePageChange = (event, newPage) => {
+    setPage(newPage);
   };
 
   const handleRowsPerPageChange = (event) => {
@@ -140,7 +140,12 @@ const UsersTable = ({ className, users, ...rest }) => {
                         >
                           {getInitials(user.name)}
                         </Avatar>
-                        <Typography variant="body1">{user.name}</Typography>
+                        <Typography
+                          color="textPrimary"
+                          variant="body1"
+                        >
+                          {user.name}
+                        </Typography>
                       </div>
                     </TableCell>
                     <TableCell>{user.email}</TableCell>

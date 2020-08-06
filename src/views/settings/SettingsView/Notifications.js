@@ -51,6 +51,7 @@ const Notifications = ({ className, ...rest }) => {
               xs={12}
             >
               <Typography
+                color="textPrimary"
                 gutterBottom
                 variant="h6"
               >
@@ -96,6 +97,7 @@ const Notifications = ({ className, ...rest }) => {
               xs={12}
             >
               <Typography
+                color="textPrimary"
                 gutterBottom
                 variant="h6"
               >

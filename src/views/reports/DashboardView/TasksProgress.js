@@ -60,7 +60,12 @@ const TasksProgress = ({ className, ...rest }) => {
             >
               TASKS PROGRESS
             </Typography>
-            <Typography variant="h3">75.5%</Typography>
+            <Typography
+              color="textPrimary"
+              variant="h3"
+            >
+              75.5%
+            </Typography>
           </Grid>
           <Grid item>
             <Avatar className={classes.avatar}>

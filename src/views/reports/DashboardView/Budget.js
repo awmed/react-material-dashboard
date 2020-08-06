@@ -70,7 +70,12 @@ const Budget = ({ className, ...rest }) => {
             >
               BUDGET
             </Typography>
-            <Typography variant="h3">$24,000</Typography>
+            <Typography
+              color="textPrimary"
+              variant="h3"
+            >
+              $24,000
+            </Typography>
           </Grid>
           <Grid item>
             <Avatar className={classes.avatar}>
@@ -82,12 +87,14 @@ const Budget = ({ className, ...rest }) => {
           <ArrowDownwardIcon className={classes.differenceIcon} />
           <Typography
             className={classes.differenceValue}
+            color="textPrimary"
             variant="body2"
           >
             12%
           </Typography>
           <Typography
             className={classes.caption}
+            color="textPrimary"
             variant="caption"
           >
             Since last month

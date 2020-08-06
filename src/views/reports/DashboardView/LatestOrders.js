@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
 import moment from 'moment';
-import uuid from 'uuid/v1';
+import { v1 as uuid } from 'uuid';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import PropTypes from 'prop-types';
 import {

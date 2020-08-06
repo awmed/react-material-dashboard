@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Outlet } from 'react-router-dom';
 import { makeStyles } from '@material-ui/styles';
 import Topbar from './Topbar';
 
@@ -13,19 +13,17 @@ const useStyles = makeStyles(({
   }
 }));
 
-const MinimalLayout = ({ children }) => {
+const MinimalLayout = () => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <Topbar />
-      <main className={classes.content}>{children}</main>
+      <main className={classes.content}>
+        <Outlet />
+      </main>
     </div>
   );
-};
-
-MinimalLayout.propTypes = {
-  children: PropTypes.node,
 };
 
 export default MinimalLayout;

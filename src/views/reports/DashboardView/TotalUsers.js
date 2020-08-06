@@ -68,7 +68,12 @@ const TotalUsers = ({ className, ...rest }) => {
             >
               TOTAL USERS
             </Typography>
-            <Typography variant="h3">1,600</Typography>
+            <Typography
+              color="textPrimary"
+              variant="h3"
+            >
+              1,600
+            </Typography>
           </Grid>
           <Grid item>
             <Avatar className={classes.avatar}>
@@ -80,12 +85,14 @@ const TotalUsers = ({ className, ...rest }) => {
           <ArrowUpwardIcon className={classes.differenceIcon} />
           <Typography
             className={classes.differenceValue}
+            color="textPrimary"
             variant="body2"
           >
             16%
           </Typography>
           <Typography
             className={classes.caption}
+            color="textPrimary"
             variant="caption"
           >
             Since last month
