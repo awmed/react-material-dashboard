@@ -57,7 +57,7 @@ const NotFoundView = () => {
             <img
               alt="Under development"
               className={classes.image}
-              src="/images/undraw_page_not_found_su7k.svg"
+              src="/static/images/undraw_page_not_found_su7k.svg"
             />
           </div>
         </Grid>

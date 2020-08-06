@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { Doughnut } from 'react-chartjs-2';
 import {
+  Box,
   Card,
   CardContent,
   CardHeader,
@@ -19,25 +20,9 @@ import {
   TabletMac as TabletMacIcon
 } from '@material-ui/icons';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     height: '100%'
-  },
-  chartContainer: {
-    position: 'relative',
-    height: '300px'
-  },
-  stats: {
-    marginTop: theme.spacing(2),
-    display: 'flex',
-    justifyContent: 'center'
-  },
-  device: {
-    textAlign: 'center',
-    padding: theme.spacing(1)
-  },
-  deviceIcon: {
-    color: theme.palette.icon
   }
 }));
 
@@ -120,19 +105,29 @@ const UsersByDevice = ({ className, ...rest }) => {
       />
       <Divider />
       <CardContent>
-        <div className={classes.chartContainer}>
+        <Box
+          height={300}
+          position="relative"
+        >
           <Doughnut
             data={data}
             options={options}
           />
-        </div>
-        <div className={classes.stats}>
+        </Box>
+        <Box
+          display="flex"
+          justifyContent="center"
+          mt={2}
+        >
           {devices.map((device) => (
-            <div
-              className={classes.device}
+            <Box
               key={device.title}
+              p={1}
+              textAlign="center"
             >
-              <span className={classes.deviceIcon}>{device.icon}</span>
+              <span className={classes.deviceIcon}>
+                {device.icon}
+              </span>
               <Typography
                 color="textPrimary"
                 variant="body1"
@@ -146,9 +141,9 @@ const UsersByDevice = ({ className, ...rest }) => {
                 {device.value}
                 %
               </Typography>
-            </div>
+            </Box>
           ))}
-        </div>
+        </Box>
       </CardContent>
     </Card>
   );

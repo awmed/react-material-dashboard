@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/styles';
-import { useMediaQuery } from '@material-ui/core';
+import {
+  useMediaQuery,
+  makeStyles,
+  useTheme
+} from '@material-ui/core';
 import Sidebar from './Sidebar';
 import Topbar from './Topbar';
 import Footer from './Footer';
@@ -26,11 +29,10 @@ const useStyles = makeStyles((theme) => ({
 const MainLayout = () => {
   const classes = useStyles();
   const theme = useTheme();
+  const [openSidebar, setOpenSidebar] = useState(false);
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'), {
     defaultMatches: true
   });
-
-  const [openSidebar, setOpenSidebar] = useState(false);
 
   const handleSidebarOpen = () => {
     setOpenSidebar(true);

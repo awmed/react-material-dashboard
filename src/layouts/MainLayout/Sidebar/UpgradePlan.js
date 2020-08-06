@@ -2,15 +2,15 @@ import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import {
-  Typography,
+  Box,
   Button,
-  colors,
+  Typography,
   makeStyles
 } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: colors.grey[50]
+    backgroundColor: theme.background.dark
   },
   media: {
     paddingTop: theme.spacing(2),
@@ -20,14 +20,6 @@ const useStyles = makeStyles((theme) => ({
       height: '100%',
       width: 'auto'
     }
-  },
-  content: {
-    padding: theme.spacing(1, 2)
-  },
-  actions: {
-    padding: theme.spacing(1, 2),
-    display: 'flex',
-    justifyContent: 'center'
   }
 }));
 
@@ -42,10 +34,13 @@ const UpgradePlan = ({ className, ...rest }) => {
       <div className={classes.media}>
         <img
           alt="Upgrade to PRO"
-          src="/images/undraw_resume_folder_2_arse.svg"
+          src="/static/images/undraw_resume_folder_2_arse.svg"
         />
       </div>
-      <div className={classes.content}>
+      <Box
+        px={2}
+        py={1}
+      >
         <Typography
           align="center"
           color="textPrimary"
@@ -61,8 +56,13 @@ const UpgradePlan = ({ className, ...rest }) => {
         >
           Upgrade to Devias Kit PRO and get even more components
         </Typography>
-      </div>
-      <div className={classes.actions}>
+      </Box>
+      <Box
+        px={2}
+        py={1}
+        display="flex"
+        justifyContent="center"
+      >
         <Button
           color="primary"
           component="a"
@@ -71,7 +71,7 @@ const UpgradePlan = ({ className, ...rest }) => {
         >
           Upgrade
         </Button>
-      </div>
+      </Box>
     </div>
   );
 };

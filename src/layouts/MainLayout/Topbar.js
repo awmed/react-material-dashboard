@@ -4,10 +4,11 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import {
   AppBar,
-  Toolbar,
   Badge,
+  Box,
   Hidden,
   IconButton,
+  Toolbar,
   makeStyles
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -19,17 +20,17 @@ const useStyles = makeStyles((theme) => ({
   root: {
     boxShadow: 'none'
   },
-  flexGrow: {
-    flexGrow: 1
-  },
   signOutButton: {
     marginLeft: theme.spacing(1)
   }
 }));
 
-const Topbar = ({ className, onSidebarOpen, ...rest }) => {
+const Topbar = ({
+  className,
+  onSidebarOpen,
+  ...rest
+}) => {
   const classes = useStyles();
-
   const [notifications] = useState([]);
 
   return (
@@ -41,7 +42,7 @@ const Topbar = ({ className, onSidebarOpen, ...rest }) => {
         <RouterLink to="/app/dashboard">
           <Logo />
         </RouterLink>
-        <div className={classes.flexGrow} />
+        <Box flexGrow={1} />
         <Hidden mdDown>
           <IconButton color="inherit">
             <Badge

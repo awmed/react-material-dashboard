@@ -7,6 +7,7 @@ import {
   CardContent,
   Grid,
   Typography,
+  colors,
   makeStyles
 } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
@@ -16,15 +17,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%'
   },
-  content: {
-    alignItems: 'center',
-    display: 'flex'
-  },
-  title: {
-    fontWeight: 700
-  },
   avatar: {
-    backgroundColor: theme.palette.success.main,
+    color: colors.green[600],
     height: 56,
     width: 56
   },
@@ -38,10 +32,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center'
   },
   differenceIcon: {
-    color: theme.palette.success.dark
+    color: colors.green[600]
   },
   differenceValue: {
-    color: theme.palette.success.dark,
+    color: colors.green[900],
     marginRight: theme.spacing(1)
   }
 }));
@@ -61,10 +55,9 @@ const TotalUsers = ({ className, ...rest }) => {
         >
           <Grid item>
             <Typography
-              className={classes.title}
               color="textSecondary"
               gutterBottom
-              variant="body2"
+              variant="h6"
             >
               TOTAL USERS
             </Typography>

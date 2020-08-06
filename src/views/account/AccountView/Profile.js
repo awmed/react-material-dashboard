@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import moment from 'moment';
 import {
   Avatar,
+  Box,
   Button,
   Card,
   CardActions,
@@ -15,27 +16,21 @@ import {
 } from '@material-ui/core';
 
 const user = {
-  name: 'Shen Zhi',
+  avatar: '/static/images/avatars/avatar_11.png',
   city: 'Los Angeles',
   country: 'USA',
-  timezone: 'GTM-7',
-  avatar: '/images/avatars/avatar_11.png'
+  name: 'Shen Zhi',
+  timezone: 'GTM-7'
 };
 
 const useStyles = makeStyles((theme) => ({
   root: {},
-  details: {
-    display: 'flex'
-  },
   avatar: {
-    marginLeft: 'auto',
-    height: 110,
-    width: 100,
+    flexGrow: 0,
     flexShrink: 0,
-    flexGrow: 0
-  },
-  progress: {
-    marginTop: theme.spacing(2)
+    height: 100,
+    marginLeft: 'auto',
+    width: 100
   },
   uploadButton: {
     marginRight: theme.spacing(2)
@@ -51,7 +46,7 @@ const Profile = ({ className, ...rest }) => {
       {...rest}
     >
       <CardContent>
-        <div className={classes.details}>
+        <Box display="flex">
           <div>
             <Typography
               color="textPrimary"
@@ -79,8 +74,8 @@ const Profile = ({ className, ...rest }) => {
             className={classes.avatar}
             src={user.avatar}
           />
-        </div>
-        <div className={classes.progress}>
+        </Box>
+        <Box mt={2}>
           <Typography
             color="textPrimary"
             variant="body1"
@@ -91,7 +86,7 @@ const Profile = ({ className, ...rest }) => {
             value={70}
             variant="determinate"
           />
-        </div>
+        </Box>
       </CardContent>
       <Divider />
       <CardActions>
@@ -102,7 +97,9 @@ const Profile = ({ className, ...rest }) => {
         >
           Upload picture
         </Button>
-        <Button variant="text">Remove picture</Button>
+        <Button variant="text">
+          Remove picture
+        </Button>
       </CardActions>
     </Card>
   );

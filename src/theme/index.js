@@ -3,33 +3,22 @@ import typography from './typography';
 
 const theme = createMuiTheme({
   palette: {
+    background: {
+      default: colors.common.white,
+      dark: '#F4F6F8',
+      paper: colors.common.white
+    },
+    divider: colors.grey[200],
     primary: {
       main: colors.indigo[500]
     },
     secondary: {
       main: colors.blue.A400
     },
-    success: {
-      main: colors.green[600]
-    },
-    info: {
-      main: colors.blue[600]
-    },
-    warning: {
-      main: colors.orange[600]
-    },
-    error: {
-      main: colors.red[600]
-    },
     text: {
       primary: colors.blueGrey[900],
-      secondary: colors.blueGrey[600],
-    },
-    background: {
-      default: '#F4F6F8',
-      paper: colors.common.white
-    },
-    divider: colors.grey[200]
+      secondary: colors.blueGrey[600]
+    }
   },
   typography,
   zIndex: {
