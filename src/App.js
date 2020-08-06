@@ -6,7 +6,7 @@ import { ThemeProvider } from '@material-ui/core';
 import GlobalStyles from 'src/components/GlobalStyles';
 import chartjs from 'src/helpers/chartjs';
 import theme from 'src/theme';
-import routes from 'src/r';
+import routes from 'src/routes';
 
 Chart.helpers.extend(Chart.elements.Rectangle.prototype, {
   draw: chartjs.draw
