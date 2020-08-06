@@ -78,7 +78,6 @@ const ProfileDetails = ({ className, ...rest }) => {
                 fullWidth
                 helperText="Please specify the first name"
                 label="First name"
-                margin="dense"
                 name="firstName"
                 onChange={handleChange}
                 required
@@ -94,7 +93,6 @@ const ProfileDetails = ({ className, ...rest }) => {
               <TextField
                 fullWidth
                 label="Last name"
-                margin="dense"
                 name="lastName"
                 onChange={handleChange}
                 required
@@ -110,7 +108,6 @@ const ProfileDetails = ({ className, ...rest }) => {
               <TextField
                 fullWidth
                 label="Email Address"
-                margin="dense"
                 name="email"
                 onChange={handleChange}
                 required
@@ -126,7 +123,6 @@ const ProfileDetails = ({ className, ...rest }) => {
               <TextField
                 fullWidth
                 label="Phone Number"
-                margin="dense"
                 name="phone"
                 onChange={handleChange}
                 type="number"
@@ -142,7 +138,6 @@ const ProfileDetails = ({ className, ...rest }) => {
               <TextField
                 fullWidth
                 label="Select State"
-                margin="dense"
                 name="state"
                 onChange={handleChange}
                 required
@@ -169,7 +164,6 @@ const ProfileDetails = ({ className, ...rest }) => {
               <TextField
                 fullWidth
                 label="Country"
-                margin="dense"
                 name="country"
                 onChange={handleChange}
                 required

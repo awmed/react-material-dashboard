@@ -1,6 +1,4 @@
-/* eslint-disable react/no-multi-comp */
-/* eslint-disable react/display-name */
-import React, { forwardRef } from 'react';
+import React from 'react';
 import { NavLink as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
@@ -8,7 +6,6 @@ import {
   Button,
   List,
   ListItem,
-  colors,
   makeStyles
 } from '@material-ui/core';
 
@@ -20,21 +17,20 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 0
   },
   button: {
-    color: colors.blueGrey[800],
-    padding: '10px 8px',
+    color: theme.palette.text.secondary,
+    fontWeight: theme.typography.fontWeightMedium,
     justifyContent: 'flex-start',
-    textTransform: 'none',
     letterSpacing: 0,
-    width: '100%',
-    fontWeight: theme.typography.fontWeightMedium
+    padding: '10px 8px',
+    textTransform: 'none',
+    width: '100%'
   },
   icon: {
-    color: theme.palette.icon,
-    width: 24,
-    height: 24,
-    display: 'flex',
     alignItems: 'center',
-    marginRight: theme.spacing(1)
+    display: 'flex',
+    height: 24,
+    marginRight: theme.spacing(1),
+    width: 24
   },
   active: {
     color: theme.palette.primary.main,
@@ -44,15 +40,6 @@ const useStyles = makeStyles((theme) => ({
     }
   }
 }));
-
-const CustomRouterLink = forwardRef((props, ref) => (
-  <div
-    ref={ref}
-    style={{ flexGrow: 1 }}
-  >
-    <RouterLink {...props} />
-  </div>
-));
 
 const SidebarNav = ({ className, pages, ...rest }) => {
   const classes = useStyles();
@@ -71,10 +58,12 @@ const SidebarNav = ({ className, pages, ...rest }) => {
           <Button
             activeClassName={classes.active}
             className={classes.button}
-            component={CustomRouterLink}
+            component={RouterLink}
             to={page.href}
           >
-            <div className={classes.icon}>{page.icon}</div>
+            <div className={classes.icon}>
+              {page.icon}
+            </div>
             {page.title}
           </Button>
         </ListItem>

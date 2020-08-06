@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
+import DashboardLayout from 'src/layouts/DashboardLayout';
 import MainLayout from 'src/layouts/MainLayout';
-import MinimalLayout from 'src/layouts/MinimalLayout';
 import DashboardView from 'src/views/reports/DashboardView';
 import AccountView from 'src/views/account/AccountView';
 import ProductListView from 'src/views/product/ProductListView';
@@ -14,7 +14,7 @@ import NotFoundView from 'src/views/errors/NotFoundView';
 const routes = [
   {
     path: 'app',
-    element: <MainLayout />,
+    element: <DashboardLayout />,
     children: [
       { path: 'dashboard', element: <DashboardView /> },
       { path: 'account', element: <AccountView /> },
@@ -26,7 +26,7 @@ const routes = [
   },
   {
     path: '/',
-    element: <MinimalLayout />,
+    element: <MainLayout />,
     children: [
       { path: '/', element: <Navigate to="/app/dashboard" /> },
       { path: 'login', element: <LoginView /> },

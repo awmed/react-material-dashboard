@@ -35,11 +35,6 @@ const pages = [
     icon: <ShoppingBasketIcon />
   },
   {
-    title: 'Authentication',
-    href: '/login',
-    icon: <LockOpenIcon />
-  },
-  {
     title: 'Account',
     href: '/app/account',
     icon: <AccountBoxIcon />
@@ -48,6 +43,11 @@ const pages = [
     title: 'Settings',
     href: '/app/settings',
     icon: <SettingsIcon />
+  },
+  {
+    title: 'Authentication',
+    href: '/login',
+    icon: <LockOpenIcon />
   }
 ];
 
