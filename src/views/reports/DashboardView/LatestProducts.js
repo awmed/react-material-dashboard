@@ -1,7 +1,7 @@
   import React, { useState } from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { v1 as uuid } from 'uuid';
+import { v4 as uuid } from 'uuid';
 import moment from 'moment';
 import {
   Button,

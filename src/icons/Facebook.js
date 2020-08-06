@@ -1,6 +1,4 @@
 import React from 'react';
-
-// Material components
 import { SvgIcon } from '@material-ui/core';
 
 const Facebook = (props) => {

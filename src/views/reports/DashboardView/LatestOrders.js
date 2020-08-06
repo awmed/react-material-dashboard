@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
 import moment from 'moment';
-import { v1 as uuid } from 'uuid';
+import { v4 as uuid } from 'uuid';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import PropTypes from 'prop-types';
 import {
@@ -21,13 +21,6 @@ import {
   makeStyles
 } from '@material-ui/core';
 import { ArrowRight as ArrowRightIcon } from '@material-ui/icons';
-import StatusBullet from 'src/components/StatusBullet';
-
-const statusColors = {
-  delivered: 'success',
-  pending: 'info',
-  refunded: 'danger'
-};
 
 const mockData = [
   {
@@ -170,14 +163,7 @@ const LatestOrders = ({ className, ...rest }) => {
                       {moment(order.createdAt).format('DD/MM/YYYY')}
                     </TableCell>
                     <TableCell>
-                      <div className={classes.statusContainer}>
-                        <StatusBullet
-                          className={classes.status}
-                          color={statusColors[order.status]}
-                          size="sm"
-                        />
-                        {order.status}
-                      </div>
+                      {order.status}
                     </TableCell>
                   </TableRow>
                 ))}
